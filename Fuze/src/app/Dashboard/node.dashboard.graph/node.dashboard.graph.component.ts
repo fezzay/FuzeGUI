@@ -14,6 +14,7 @@ export class NodeDashboardGraphComponent {
       const graph = fg.default()
     (document.getElementById('graph')!)
       .graphData(data)
+      .nodeLabel('id')
     });
   }
 }
