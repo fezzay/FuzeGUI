@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KubeService } from '../../services/kube.service';
 import * as fg from 'force-graph';
 @Component({
   selector: 'node-dashboard-graph',
@@ -7,7 +8,7 @@ import * as fg from 'force-graph';
 })
 export class NodeDashboardGraphComponent {
 
-  constructor() {}
+  constructor(private kubeService:KubeService) {}
 
   ngOnInit(): void {
     fetch('assets/fakeData.json').then(res => res.json()).then(data => {
@@ -16,5 +17,9 @@ export class NodeDashboardGraphComponent {
       .graphData(data)
       .nodeLabel('id')
     });
+    this.kubeService.getAllPods().subscribe(data =>
+      {
+        console.log(data);
+      });
   }
 }

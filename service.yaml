@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fuze
+spec:
+  selector:
+    app: fuze
+  type: NodePort
+  ports:
+  - name: fuze
+    port:  80
+    targetPort: 8080

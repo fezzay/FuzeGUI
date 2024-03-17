@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuze
+  labels:
+    app: fuze
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fuze
+  template:
+    metadata:
+      labels:
+        app: fuze
+    spec:
+      containers:
+      - name: fuze
+        image: fezzzy/fuze-web:v1.1
+        ports:
+        - containerPort: 80
