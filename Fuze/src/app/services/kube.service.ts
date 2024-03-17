@@ -12,6 +12,6 @@ export class KubeService {
 
   getAllPods()
   {
-    return this.client.get('https://kubernetes.default.svs/api');
+    return this.client.get('https:10.43.0.1:443/api');
   }
 }

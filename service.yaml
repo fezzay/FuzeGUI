@@ -1,12 +1,14 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: fuze
+  name: fuzebalancer
+  labels:
+    app: fuze
 spec:
+  type: LoadBalancer
+  ports:
+  - port: 89
+    name: http
+    targetPort: 80
   selector:
     app: fuze
-  type: NodePort
-  ports:
-  - name: fuze
-    port:  80
-    targetPort: 8080
