@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Pod } from './Models/pod.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class KubeService {
 
-  constructor(private client:HttpClient) 
+  constructor(public client:HttpClient) 
   { 
   }
 
-  getAllPods()
+  getAllPods(): Observable<Pod[]>
   {
-    return this.client.get('https:10.43.0.1:443/api');
+    return this.client.get<Pod[]>('http://localhost:5000/Kube/Pods');
   }
 }
