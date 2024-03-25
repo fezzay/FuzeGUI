@@ -1,6 +1,8 @@
 export class NodePoint {
     constructor(
       public id: string,
-      public group: number
+      public name: string,
+      public group: number,
+      public val: number
     ) { }
 }
