@@ -15,11 +15,11 @@ export class KubeService {
 
   getAllPods(): Observable<Pod[]>
   {
-    return this.client.get<Pod[]>('http://localhost:5000/Kube/Pods');
+    return this.client.get<Pod[]>('http://192.168.1.55:32535/Kube/Pods');
   }
 
   getAllDeployments(): Observable<Deployment[]>
   {
-    return this.client.get<Deployment[]>('http://localhost:5000/kube/Deployments');
+    return this.client.get<Deployment[]>('http://192.168.1.55:32535/Kube/Deployments');
   }
 }
